@@ -1,19 +1,20 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css'
+import './index.css';
+import {users} from './users'
+import User from './components/User'
 
-function User(){
+function UserList(){
 	return (
-		<div className='usermain'>
-			<Name />
-			<Id />
-			<Dept />
+		<div>
+		{
+			users.map((user, index)=>{
+				return <User key={index} {...user} />;
+			})
+		}
 		</div>
-	)
-};
+	);
+}
 
-const Name = ()=> <h1>Name: Alamin</h1>;
-const Id = ()=> <p>ID: 12</p>;
-const Dept = ()=> <p>DEPT: SE</p>
 
-ReactDOM.render( <User/>, document.getElementById('root'))
+
+ReactDOM.render( <UserList/>, document.getElementById('root'))
