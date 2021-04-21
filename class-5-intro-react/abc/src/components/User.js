@@ -1,4 +1,5 @@
 
+import {Link} from 'react-router-dom';
 
 export default function User({name, id, dept, email, deleteUser}){
 	return (
@@ -10,6 +11,7 @@ export default function User({name, id, dept, email, deleteUser}){
 				Email: {email} <br/>
 			</p>			
 			<button onClick={()=>deleteUser(id)}>Delete</button>
+			<Link to={`/edit/${id}`}>Edit</Link>
 		</div>
 	)
 };

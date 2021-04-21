@@ -1,41 +1,46 @@
 import {useState} from 'react';
-
+import {users} from '../usersData';
+import {useParams} from 'react-router-dom';
 import './AddUserForm.css';
 
-const AddUserForm = ({addUser})=> {
-    
+const AddUserForm = ({status, callback})=> {
+
+    const {id:eid}  = useParams();
     const [newUser, setNewUser] = useState({
         id: '',
         name: '',
         dept: '',
         email: '',
     });
+    let data = "";
+    if(status == "edit"){
+        data = users.find((user)=> user.id === eid);
+        //setNewUser({...data});
+    }    
+
+    console.log(data);
 
     const changeUser = (e)=>{
         const attar = e.target.name;
         const value = e.target.value;
-        //console.log(attar+ "|"+value);
         const user = {...newUser, [attar] : value}; 
         setNewUser(user);
     }
 
-
     const formSubmit=(e)=>{
         e.preventDefault();
 
-        // const id = e.target[0].value
-        // const name = e.target[1].value
-        // const dept = e.target[2].value
-        // const email = e.target[3].value
-        //const newUser = {id: id, name: name, dept: dept, email:email}
-        addUser(newUser);
+        if(status == 'add'){
+            callback(newUser);
+            setNewUser({
+                id: '',
+                name: '',
+                dept: '',
+                email: '',
+            })
 
-        setNewUser({
-            id: '',
-            name: '',
-            dept: '',
-            email: '',
-        })
+        }
+        
     }
 
     return (
