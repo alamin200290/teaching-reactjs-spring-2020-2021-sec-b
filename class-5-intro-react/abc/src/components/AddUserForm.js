@@ -12,9 +12,9 @@ const AddUserForm = ({status, callback})=> {
         dept: '',
         email: '',
     });
-    let data = "";
+
     if(status == "edit"){
-        data = users.find((user)=> user.id === eid);
+    const  data = users.find((user)=> user.id === eid);
         //setNewUser({...data});
     }    
 
@@ -40,7 +40,6 @@ const AddUserForm = ({status, callback})=> {
             })
 
         }
-        
     }
 
     return (
@@ -52,25 +51,25 @@ const AddUserForm = ({status, callback})=> {
                         <tr>
                             <td>ID</td>
                             <td>
-                                <input type="number" name="id" value={newUser.id} onChange={changeUser}/> 
+                                <input type="number" name="id" value={data.id} onChange={changeUser}/> 
                             </td>
                         </tr>
                         <tr>
                             <td>Name</td>
                             <td>
-                                <input type="text" name="name" value={newUser.name} onChange={changeUser}/> 
+                                <input type="text" name="name" value={data.name} onChange={changeUser}/> 
                             </td>
                         </tr>
                         <tr>
                             <td>Dept</td>
                             <td>
-                                <input type="text" name="dept" value={newUser.dept} onChange={changeUser} /> 
+                                <input type="text" name="dept" value={data.dept} onChange={changeUser} /> 
                             </td>
                         </tr>
                         <tr>
                             <td>Email</td>
                             <td>
-                                <input type="email" name="email" value={newUser.email} onChange={changeUser}/> 
+                                <input type="email" name="email" value={data.email} onChange={changeUser}/> 
                             </td>
                         </tr>
                         <tr>

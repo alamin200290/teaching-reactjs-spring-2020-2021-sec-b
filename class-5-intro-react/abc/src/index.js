@@ -5,11 +5,14 @@ import {users} from './usersData';
 import Navbar from './components/Navbar';
 import User from './components/User';
 import AddUserFrom from './components/AddUserForm';
+import {useFetch} from './components/useFetch';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 
-function UserList(){
+const url = "localhost:8000/userlist";
 
+function UserList(){
+	const users = useFetch(url);
 	//const [name, setName] = useState('XYZ');
 	const [list, setUsers] = useState(users);
 
