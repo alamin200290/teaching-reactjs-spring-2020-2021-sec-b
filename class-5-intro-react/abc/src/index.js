@@ -51,7 +51,11 @@ function UserList(){
 
 				<Route path='/userlist'>
 					<>
-						
+						{
+		                    list.map((user, index)=>{
+		                      return <User key={index} {...user} deleteUser={deleteUser} />;
+		                    })
+		                }
 					</>
 				</Route>
 				<Route path='/edit/:id' children={<AddUserFrom status='edit' callback={getUserlist} />}></Route>
