@@ -9,8 +9,8 @@ import {useFetch} from './components/useFetch';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 
-//const url = "https://jsonplaceholder.typicode.com/todos";
-const url = "http://localhost/webtech/h/ajax/abc.php";
+const url = "https://jsonplaceholder.typicode.com/todos";
+//const url = "http://localhost/webtech/h/ajax/abc.php";
 
 function UserList(){
 	
