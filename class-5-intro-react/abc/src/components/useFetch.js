@@ -7,14 +7,20 @@ export const useFetch = (url)=>{
     const [users, setUsers] = useState([]);
 
     const getUserlist = async ()=>{
-        const response = await fetch(url);
+        const response = await fetch(url, {
+        	mode:'no-cors'
+        });
+
         const data = await response.json();
         
-        setUsers(data);
-        setStatus(false);
+        console.log(data);
+        //setUsers(data);
+        //setStatus(false);
     }
 
-    
+    useEffect(()=>{
+    	getUserlist();
+    }, []);
     
 
 }

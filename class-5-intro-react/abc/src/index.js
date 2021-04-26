@@ -9,12 +9,16 @@ import {useFetch} from './components/useFetch';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 
-const url = "localhost:8000/userlist";
+//const url = "https://jsonplaceholder.typicode.com/todos";
+const url = "http://localhost/webtech/h/ajax/abc.php";
 
 function UserList(){
+	
 	const users = useFetch(url);
 	//const [name, setName] = useState('XYZ');
 	const [list, setUsers] = useState(users);
+
+	console.log(users);
 
 	//add user 
 	const addUser= (newUser)=>{
@@ -47,11 +51,7 @@ function UserList(){
 
 				<Route path='/userlist'>
 					<>
-						{
-							list.map((user, index)=>{
-								return <User key={index} {...user} deleteUser={deleteUser} />;
-							})
-						}
+						
 					</>
 				</Route>
 				<Route path='/edit/:id' children={<AddUserFrom status='edit' callback={getUserlist} />}></Route>
